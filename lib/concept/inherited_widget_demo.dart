@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/widgets/body_widget.dart';
 
 class MainWidget extends StatelessWidget {
   const MainWidget({super.key});
@@ -9,10 +10,11 @@ class MainWidget extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Testing Inherited Widget"),
         centerTitle: false,
-        actions: [
-          // ShoppingCartWidget(),
+        actions: const [
+          // ShoppingCartWidget()
         ],
       ),
+      body: const BodyWidget(),
     );
   }
 }
