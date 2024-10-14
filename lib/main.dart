@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/concept/inherited_widget_demo.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,13 +10,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("build main Inherited Widget");
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello!'),
-        ),
-      ),
-    );
+        title: "flutter testing",
+        debugShowCheckedModeBanner: false,
+        home: MainWidget());
   }
 }
