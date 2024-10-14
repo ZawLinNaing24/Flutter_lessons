@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/widgets/number_provider.dart';
 
 class ShoppingCartWidget extends StatelessWidget {
   const ShoppingCartWidget({super.key});
@@ -6,16 +7,17 @@ class ShoppingCartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint("Build SchoolCart Widget");
-    return const Stack(
+    final number = NumberProvider.of(context)!.number;
+    return Stack(
       clipBehavior: Clip.none,
       children: [
-        Icon(Icons.shopping_cart_checkout_outlined),
+        const Icon(Icons.shopping_cart_checkout_outlined),
         Positioned(
           top: -8,
           left: -10,
           child: CircleAvatar(
             radius: 10,
-            child: Text("0"),
+            child: Text(number.toString()),
           ),
         )
       ],

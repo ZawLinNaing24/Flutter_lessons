@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/widgets/number_provider.dart';
 
 class NeedNumberWidget extends StatefulWidget {
   const NeedNumberWidget({super.key});
@@ -8,13 +9,6 @@ class NeedNumberWidget extends StatefulWidget {
 }
 
 class _NeedNumberWidgetState extends State<NeedNumberWidget> {
-  int number = 0;
-  void increase() {
-    setState(() {
-      number++;
-    });
-  }
-
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
@@ -24,14 +18,14 @@ class _NeedNumberWidgetState extends State<NeedNumberWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final number = NumberProvider.of(context)!.number;
+
     print("build needNumber Widget");
     return Column(
       children: [
         Text("Number: $number"),
         ElevatedButton(
-            onPressed: () {
-              increase();
-            },
+            onPressed: NumberProvider.of(context)!.onPressed,
             child: const Icon(Icons.add))
       ],
     );
