@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/widgets/number_text.dart';
 
 class StatefulWidgetLifecycle extends StatefulWidget {
   const StatefulWidgetLifecycle({super.key});
@@ -32,11 +33,32 @@ class _StatefulWidgetLifecycleState extends State<StatefulWidgetLifecycle> {
         appBar: AppBar(
           title: const Text("Stateful Widget"),
         ),
-        body: const Center(
+        body: Center(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+          children: [
+            NumberText(number: number),
+            const SizedBox(
+              height: 16,
+            ),
+            Text("Parent Numbe: $number"),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    number++;
+                  });
+
+                  debugPrint(number.toString());
+                },
+                child: const Text("Increase")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => const NumberText(number: 99)));
+                },
+                child: const Text("Go to detail"))
+          ],
         )));
   }
 }
